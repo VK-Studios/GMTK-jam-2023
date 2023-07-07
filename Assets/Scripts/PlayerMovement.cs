@@ -95,17 +95,18 @@ public class PlayerMovement : MonoBehaviour
 			moveDirection = move.ReadValue<Vector2>();
 
 			legsAnim.SetInteger("xInput", Mathf.RoundToInt(moveDirection.x));
-			legsAnim.SetInteger("yInput", Mathf.RoundToInt(moveDirection.y));
 
-			if (moveDirection.x == 0 && moveDirection.y >= 0.01) {
+			/*if (moveDirection.x == 0 && moveDirection.y >= 0.01) {
 				//up
 				dir = 1;
 				//Debug.Log("1");
 			} else if (moveDirection.x == 0 && moveDirection.y <= -0.01) {
 				//down
 				dir = 2;
-				//Debug.Log("2");
-			} else if (moveDirection.x >= 0.01) {
+				//Debug.Log("2");} else */
+
+
+			if (moveDirection.x >= 0.01) {
 				//right
 				dir = 3;
 				//Debug.Log("3");
@@ -141,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 	private float updateAnims() {
 		mousePos = Mouse.current.position.value;
 
-		mousePos.z = 5.23f;
+		mousePos.z = 10f;
 
 		objPos = Camera.main.WorldToScreenPoint(transform.position);
 		mousePos.x = mousePos.x - objPos.x;
@@ -150,7 +151,15 @@ public class PlayerMovement : MonoBehaviour
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 		Debug.Log(angle);
 
-		if (angle > -45 && angle < 45) {
+
+		if (angle >= 90 || angle < -90) {
+			mDir = 4;
+		} else if (angle < 90 || angle >= -90) {
+			mDir = 3;
+		}
+
+
+		/*if (angle > -45 && angle < 45) {
 			mDir = 1;
 		} else if (angle >= 45 && angle <= 135) {
 			mDir = 4;
@@ -158,15 +167,16 @@ public class PlayerMovement : MonoBehaviour
 			mDir = 2;
 		} else if (angle <= -45 && angle >= -135) {
 			mDir = 3;
-		}
+		}*/
 
+		Debug.Log(mDir);
 		return mDir;
 
 	}
 
 	private void FixedUpdate() {
 		//movement
-		rb.velocity = new Vector2(moveDirection.x * activeMoveSpeed, moveDirection.y * activeMoveSpeed);
+		rb.velocity = new Vector2(moveDirection.x * activeMoveSpeed, 0);
 	}
 
 
