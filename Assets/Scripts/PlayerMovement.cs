@@ -68,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
 	private void OnDisable() {
 		move.Disable();
 		fire.Disable();
-		
+		dash.Disable();
+
 	}
 
 	// Update is called once per frame
@@ -186,4 +187,15 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	}
+
+	public void setFrozen(bool froz) {
+		if (froz) {
+			move.Disable();
+		}
+        else
+        {
+			move.Enable();
+        }
+    }
+
 }
