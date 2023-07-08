@@ -35,7 +35,7 @@ Transform:
   - {fileID: 254767079652706111}
   - {fileID: 6591969396157580650}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5645787587094540717
 Rigidbody2D:
@@ -86,7 +86,7 @@ MonoBehaviour:
   atTarget: 0
   abilCooldown: 0
   ability: 0
-  pointatk: {fileID: 0}
+  pointatk: {fileID: 762112865902174605}
 --- !u!70 &3548800708284465046
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

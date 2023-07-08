@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnOne: 0
   spawnNum: 5
-  spawnDelay: 5
+  spawnDelay: 2
   enemy: {fileID: 5588442491461139376, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
 --- !u!4 &576851667
 Transform:
@@ -299,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576851665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.62, y: 1.68, z: 23.259262}
+  m_LocalPosition: {x: 6.62, y: 1.68, z: -0.2648522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -937,6 +937,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1958351807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6043034445191756161, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
+  m_PrefabInstance: {fileID: 465024347204442557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1958351810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 762112865902174605, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
+  m_PrefabInstance: {fileID: 465024347204442557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958351807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc12127b7c9b034e8a807384d00e1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &465024347204442557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,6 +965,14 @@ PrefabInstance:
       propertyPath: atkLoc
       value: 
       objectReference: {fileID: 1207000995}
+    - target: {fileID: 762112865902174605, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1958351807}
+    - target: {fileID: 4773524839680285752, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
+      propertyPath: pointatk
+      value: 
+      objectReference: {fileID: 1958351810}
     - target: {fileID: 5062104927847658303, guid: 0bbe15a64c36714479e8940a76b85c78, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1028,7 +1052,7 @@ PrefabInstance:
       objectReference: {fileID: 4026578360533944559, guid: 01f47437d8520c849a7f597c24f38bd6, type: 3}
     - target: {fileID: 3377493328914552818, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: Maxhealth
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5231063674201628200, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: m_RootOrder
