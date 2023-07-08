@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Start() {
 		activeMoveSpeed = movementSpeed;
 		health = Maxhealth;
-		totalSoulOrbs = 0;
 		
 	}
 
