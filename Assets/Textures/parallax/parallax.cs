@@ -12,7 +12,7 @@ public class parallax : MonoBehaviour {
 		length = GetComponent<SpriteRenderer>().bounds.size.x;
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		float temp = (cam.transform.position.x * (1 - effect));
 		float dist = (cam.transform.position.x * effect);
 
