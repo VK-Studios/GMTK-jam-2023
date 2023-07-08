@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 		mousePos.y = mousePos.y - objPos.y;
 
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-		Debug.Log(angle);
+		//Debug.Log(angle);
 
 
 		if (angle >= 90 || angle < -90) {

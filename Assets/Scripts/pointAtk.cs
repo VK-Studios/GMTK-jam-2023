@@ -44,7 +44,7 @@ public class pointAtk : MonoBehaviour
 	}
 
 	public void fireTheBall() {
-		Instantiate(fireball, objPos, transform.rotation);
+		Instantiate(fireball);
 	}
 
 }
