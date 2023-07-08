@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - orb
+  - fText
+  - Enemy
+  - cast
   layers:
   - Default
   - TransparentFX
@@ -41,7 +44,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 391116025
     locked: 0
