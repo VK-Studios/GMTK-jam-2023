@@ -43,9 +43,8 @@ public class enemy1Atk : MonoBehaviour
         angle = Mathf.Atan2(target.position.x, (float)(-target.position.y-0.35)) * Mathf.Rad2Deg;
 
        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-        
+    
         effectPos = transform.position;
-
 
     }
 
@@ -68,8 +67,9 @@ public class enemy1Atk : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.name != "Interaction Range" && collision.gameObject.tag != "cast")
         {
+
             //add interface for damamge here, IDamageable
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
