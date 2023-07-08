@@ -13,6 +13,8 @@ public class respawnw : MonoBehaviour
     public int totalSoulOrbs;
     public GameObject soulOrb;
 
+    public Cinemachine.CinemachineVirtualCamera virtualCamera;
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -43,7 +45,10 @@ public class respawnw : MonoBehaviour
         Instantiate(soulOrb, pos, rot);
         Destroy(Player);
         Player = newPlayer;
-        playerNum++;
+
+        virtualCamera.Follow = Player.transform;
+
+		playerNum++;
         if(playerNum >= players.Count)
         {
             playerNum = 0;
