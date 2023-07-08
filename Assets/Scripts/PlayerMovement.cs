@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 
 public class PlayerMovement : MonoBehaviour, IDamageable
-public class PlayerMovement : MonoBehaviour
 {
 
     public float movementSpeed = 5f;
