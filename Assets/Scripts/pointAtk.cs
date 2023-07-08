@@ -51,13 +51,33 @@ public class pointAtk : MonoBehaviour
 	
 	}
 
-	public void freezeRot()
-	{
-		frozen = !frozen;
-	}
 
-	public void fireTheBall() {
+    public void EnableAttack()
+    {
+	    gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+	
+	public void DisableAttack()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public void fireTheBall() {
 		Instantiate(fireball, effectPos, transform.rotation);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag != "Player")
+        {
+            //add interface for damamge here, IDamageable
+            if (collision.gameObject.GetComponent<IDamageable>() != null)
+            {
+                collision.gameObject.GetComponent<IDamageable>().dealDamage(5);
+            }
+
+        }
+    }
 
 }

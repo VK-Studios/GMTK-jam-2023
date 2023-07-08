@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
+public class PlayerMovement : MonoBehaviour, IDamageable
 public class PlayerMovement : MonoBehaviour
 {
 
     public float movementSpeed = 5f;
     public Rigidbody2D rb;
 	Vector2 moveDirection = Vector2.zero;
+
 
 	[SerializeField] private LayerMask m_WhatIsGround;
 	[SerializeField] private Transform m_GroundCheck;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 	private InputAction fire;
 	private InputAction dash;
 	private InputAction slot1;
+
 	private InputAction jumpp;
 
 	public Animator legsAnim;
@@ -59,7 +62,11 @@ public class PlayerMovement : MonoBehaviour
 	private float atkCoolCounter = 0;
 	public int atkDamage;
 
-	public pointAtk pointatk; 
+	public pointAtk pointatk;
+
+
+	public int Maxhealth = 30;
+	public int health;
 
 	private void Awake() {
 		input = new PlayerControls();
@@ -68,10 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
+
 	}
 
 	private void Start() {
 		activeMoveSpeed = movementSpeed;
+		health = Maxhealth;
 		
 	}
 
@@ -169,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
 		if(atkCoolCounter <= 0)
 		{
 			pointatk.frozen = false;
+			pointatk.DisableAttack();
 		}
 		
 
@@ -180,7 +190,6 @@ public class PlayerMovement : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			jump = false;
 		}
-
 	}
 
 	private float updateAnims() {
@@ -238,6 +247,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 	private void Fire(InputAction.CallbackContext context) {
+		pointatk.EnableAttack();
 		pointatk.frozen = true;
 		if (atkCoolCounter <= 0) {
 			torsoAnim.SetTrigger("attack");
@@ -284,4 +294,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void dealDamage(int damage)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
