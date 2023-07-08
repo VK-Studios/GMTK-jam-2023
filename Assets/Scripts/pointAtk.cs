@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -20,6 +22,7 @@ public class pointAtk : MonoBehaviour
 	private bool rotating = true;
 
 	public GameObject fireball;
+	public bool frozen = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -40,10 +43,17 @@ public class pointAtk : MonoBehaviour
 
 		angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
-		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
+		if (!frozen)
+		{
+			transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+		}
 		effectPos = transform.position;
 	
+	}
+
+	public void freezeRot()
+	{
+		frozen = !frozen;
 	}
 
 	public void fireTheBall() {

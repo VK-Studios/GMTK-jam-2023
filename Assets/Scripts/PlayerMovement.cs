@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 	private float atkCoolCounter = 0;
 	public int atkDamage;
 
+	public pointAtk pointatk; 
+
 	private void Awake() {
 		input = new PlayerControls();
 	}
@@ -139,7 +141,10 @@ public class PlayerMovement : MonoBehaviour
 		if (atkCoolCounter > 0) {
 			atkCoolCounter -= Time.deltaTime;
 		}
-
+		if(atkCoolCounter <= 0)
+		{
+			pointatk.frozen = false;
+		}
 		
 
 		torsoAnim.SetFloat("Dir", updateAnims());
@@ -187,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 	private void Fire(InputAction.CallbackContext context) {
-
+		pointatk.frozen = true;
 		if (atkCoolCounter <= 0) {
 			torsoAnim.SetTrigger("attack");
 			effectAnim.SetTrigger("attack");
