@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using Unity.VisualScripting;
 
 public class interactionBox : MonoBehaviour {
 
@@ -27,6 +28,14 @@ public class interactionBox : MonoBehaviour {
 	[SerializeField] private GameObject fText;
 
 	void Awake() {
+		Object[] tmpro = Resources.FindObjectsOfTypeAll(typeof(TextMeshProUGUI));
+		for (int i = 0; i < tmpro.Length; i++) {
+			if (tmpro[i].GameObject().tag == "fText") {
+				fText = tmpro[i].GameObject();
+				break;
+			}
+		}
+
 		interDistance = 0;
 		input = new PlayerControls();
 	}

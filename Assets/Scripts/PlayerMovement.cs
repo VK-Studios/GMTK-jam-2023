@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -73,6 +74,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 
 	private void Awake() {
+
+		
+
 		input = new PlayerControls();
         respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<respawnw>();
 		spendableSoul = respawn.totalSoulOrbs;

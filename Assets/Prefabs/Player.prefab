@@ -614,14 +614,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_GroundCheck: {fileID: 5442992332057948346}
-  m_JumpForce: 400
+  m_JumpForce: 600
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
   legsAnim: {fileID: 6543911055769826745}
   torsoAnim: {fileID: 3189227969378044529}
   effectAnim: {fileID: 410342411358683672}
-  dashSpeed: 10
+  dashSpeed: 15
   dashLength: 0.3
   dashCooldown: 1
   atkCooldown: 0.5
@@ -681,7 +681,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
