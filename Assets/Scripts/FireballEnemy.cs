@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Fireball : MonoBehaviour
+public class FireballEnemy : MonoBehaviour
 {
 
     private Rigidbody2D rb;
@@ -33,8 +33,9 @@ public class Fireball : MonoBehaviour
 
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "cast") {
+        Debug.Log(collision.gameObject.name);   
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.name != "Interaction Range" && collision.gameObject.tag != "cast") {
+            
             //add interface for damamge here, IDamageable
            if(collision.gameObject.GetComponent<IDamageable>() != null)
             {

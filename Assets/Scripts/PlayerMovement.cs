@@ -147,7 +147,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			moveDirection = move.ReadValue<Vector2>();
 
 			legsAnim.SetInteger("xInput", Mathf.RoundToInt(moveDirection.x));
-			Debug.Log(Mathf.RoundToInt(moveDirection.x));
 
 			/*if (moveDirection.x == 0 && moveDirection.y >= 0.01) {
 				//up
@@ -293,7 +292,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		if (m_Grounded) {
 			jump = true;
 		}
-		dealDamage(10);
 
 	}
 
