@@ -64,6 +64,7 @@ public class pointAtk : MonoBehaviour
 
     public void fireTheBall() {
 		Instantiate(fireball, effectPos, transform.rotation);
+        
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
