@@ -300,12 +300,14 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         }
     }
 
+    
+
     public void dealDamage(int damage)
     {
         health = health - damage;
         if (health <= 0)
         {
-    			respawn.death();
+			respawn.death();
         }
     }
 }

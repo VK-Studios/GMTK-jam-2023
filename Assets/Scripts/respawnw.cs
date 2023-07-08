@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using UnityEditor;
 using UnityEngine;
 
 public class respawnw : MonoBehaviour
@@ -9,6 +11,8 @@ public class respawnw : MonoBehaviour
     public GameObject Player;
     public int playerNum;
     public int totalSoulOrbs;
+    public GameObject soulOrb;
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -23,11 +27,20 @@ public class respawnw : MonoBehaviour
         
         
     }
+    
+    public void addOrb()
+    {
+        totalSoulOrbs++;    
+    }
 
     public void death()
     {
+        Destroy(GameObject.FindGameObjectWithTag("orb"));
+        Vector3 pos = Player.transform.position;
+        Quaternion rot = Player.transform.rotation;
         GameObject newPlayer = Instantiate(players[playerNum]);
         newPlayer.tag = Player.tag;
+        Instantiate(soulOrb, pos, rot);
         Destroy(Player);
         Player = newPlayer;
         playerNum++;

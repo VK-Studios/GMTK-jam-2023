@@ -630,6 +630,8 @@ MonoBehaviour:
   respawn: {fileID: 0}
   Maxhealth: 30
   health: 0
+  soulOrb: {fileID: 4026578360533944559, guid: 01f47437d8520c849a7f597c24f38bd6, type: 3}
+  spendableSoul: 0
 --- !u!70 &6004367544324104649
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
