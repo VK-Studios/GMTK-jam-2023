@@ -69,12 +69,13 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	public int Maxhealth = 30;
 	public int health;
 
-	public int totalSoulOrbs;
-	public int spendingOrbs = 0;
+	public int spendableSoul;
+
 
 	private void Awake() {
 		input = new PlayerControls();
         respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<respawnw>();
+		spendableSoul = respawn.totalSoulOrbs;
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -259,7 +260,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			effectAnim.SetTrigger("attack");
 			atkCoolCounter = atkCooldown;
 		}
-		totalSoulOrbs++;	
 		
 	}
 

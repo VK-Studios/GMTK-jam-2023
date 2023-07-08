@@ -8,10 +8,12 @@ public class respawnw : MonoBehaviour
     public List<GameObject> players = new List<GameObject>();
     public GameObject Player;
     public int playerNum;
+    public int totalSoulOrbs;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerNum = 1;
+        totalSoulOrbs = 0;
     }
 
     // Update is called once per frame
