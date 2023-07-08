@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -73,6 +74,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 
 	private void Awake() {
+
+		
+
 		input = new PlayerControls();
         respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<respawnw>();
 		spendableSoul = respawn.totalSoulOrbs;
@@ -143,6 +147,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			moveDirection = move.ReadValue<Vector2>();
 
 			legsAnim.SetInteger("xInput", Mathf.RoundToInt(moveDirection.x));
+			Debug.Log(Mathf.RoundToInt(moveDirection.x));
 
 			/*if (moveDirection.x == 0 && moveDirection.y >= 0.01) {
 				//up
@@ -185,9 +190,11 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			pointatk.frozen = false;
 			pointatk.DisableAttack();
 		}
-		
 
-		torsoAnim.SetFloat("Dir", updateAnims());
+		float mdir = updateAnims();
+
+		torsoAnim.SetFloat("Dir", mdir);
+		legsAnim.SetFloat("mouseDir", mdir);
 
 		if (jump) {
 			// Add a vertical force to the player.
@@ -300,12 +307,14 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         }
     }
 
+    
+
     public void dealDamage(int damage)
     {
         health = health - damage;
         if (health <= 0)
         {
-    			respawn.death();
+			respawn.death();
         }
     }
 }
