@@ -13,7 +13,7 @@ public class enemy1 : MonoBehaviour, IDamageable
     public int maxHealth = 10;
     public int heatlh;
 
-    private float moveSpeed = 2f;
+    public float moveSpeed = 2f;
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDir;
@@ -148,7 +148,6 @@ public class enemy1 : MonoBehaviour, IDamageable
             float angle = 0;
             rb.rotation = angle;
             moveDir = dir;
-            moveDir.x = moveDir.x;
 
 
             legsAnim.SetInteger("xInput", Mathf.RoundToInt(moveDir.x));
@@ -214,6 +213,7 @@ public class enemy1 : MonoBehaviour, IDamageable
     {
 
         rb.velocity = new Vector2(moveDir.x * moveSpeed, rb.velocity.y);
+        Debug.Log(moveDir.x);
         if (atTarget)
         {
             cooldown++;
