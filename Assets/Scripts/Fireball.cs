@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +8,7 @@ public class Fireball : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    private int life = 200;
+    private int life = 60;
 
     // Start is called before the first frame update
     void Start() {
@@ -17,21 +18,29 @@ public class Fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        life -= 1;
 
-        if (life <= 0) {
-            Destroy(gameObject);
-        }
     }
 
 	private void FixedUpdate() {
-		rb.velocity = new Vector2(transform.up.y * 10, -transform.up.x * 10);
+        life -= 1;
+
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
+        rb.velocity = new Vector2(transform.up.y * 10, -transform.up.x * 10);
 	}
 
 
 	private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log(collision.gameObject.name);   
         if (collision.gameObject.tag != "Player") {
             //add interface for damamge here, IDamageable
+           if(collision.gameObject.GetComponent<IDamageable>() != null)
+            {
+                collision.gameObject.GetComponent<IDamageable>().dealDamage(5);
+            } 
+
 
             Destroy(gameObject);
         }
