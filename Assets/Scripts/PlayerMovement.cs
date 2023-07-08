@@ -144,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
 		if(atkCoolCounter <= 0)
 		{
 			pointatk.frozen = false;
+			pointatk.DisableAttack();
 		}
 		
 
@@ -192,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 	private void Fire(InputAction.CallbackContext context) {
+		pointatk.EnableAttack();
 		pointatk.frozen = true;
 		if (atkCoolCounter <= 0) {
 			torsoAnim.SetTrigger("attack");
