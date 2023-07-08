@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -30,7 +31,13 @@ public class enemy1 : MonoBehaviour, IDamageable
     private float dir_ = 1f;
     private float mDir = 1f;
 
+    public bool atTarget = false;
 
+    public int abilCooldown = 0;
+    public int ability = 0;
+
+
+    public enemy1Atk pointatk;
 
     private void Awake()
     {
@@ -103,20 +110,39 @@ public class enemy1 : MonoBehaviour, IDamageable
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-
-
-       if (target)
+        if(abilCooldown >500)
         {
-            Vector3 target1 = target.position;
-            if (target1.x - transform.position.x > 0)
-            {
-                target1.x = target1.x - 3;
+            System.Random random = new System.Random();
+            ability = random.Next(0, 2);
+            abilCooldown = 0;
+        }
+        abilCooldown++;
 
-            }
-            else
-            {
-                target1.x = target1.x + 3;
+        Vector3 target1 = target.position;
+        if(Math.Abs(target1.x - transform.position.x) <1)
+        {
+            atTarget = true;
+        }
+        else
+        {
+           atTarget=false;
+        }
 
+        if (target)
+        {
+            if (ability == 0)
+            {
+
+                if (target1.x - transform.position.x > 0)
+                {
+                    target1.x = target1.x - 3;
+
+                }
+                else
+                {
+                    target1.x = target1.x + 3;
+
+                }
             }
             Vector3 dir = (target1 - transform.position).normalized;
             float angle = 0;
@@ -172,16 +198,48 @@ public class enemy1 : MonoBehaviour, IDamageable
     }
 
 
+    private void Fire()
+    {
+        pointatk.EnableAttack();
+        pointatk.frozen = true;
+            torsoAnim.SetTrigger("attack");
+            effectAnim.SetTrigger("attack");
+            
+        
+
+    }
 
 
     private void FixedUpdate()
     {
+
         rb.velocity = new Vector2(moveDir.x * moveSpeed, rb.velocity.y);
-        cooldown++;
-        if (cooldown > 27)
+        if (atTarget)
         {
-            Slot1();
-            cooldown = 0;
+            cooldown++;
+            if (cooldown > 27)
+            {
+                Fire();
+                cooldown = 0;
+            }
+        }
+        if(ability == 1)
+        {
+            cooldown++;
+            if (cooldown > 27)
+            {
+                Fire();
+                cooldown = 0;
+            }
+        }
+        else if (ability == 0)
+        {
+            cooldown++;
+            if (cooldown > 60)
+            {
+                Slot1();
+                cooldown = 0;
+            }
         }
 
     }
