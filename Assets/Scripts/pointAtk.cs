@@ -54,7 +54,7 @@ public class pointAtk : MonoBehaviour
 
     public void EnableAttack()
     {
-			gameObject.GetComponent<BoxCollider2D>().enabled = true;
+	    gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 	
 	public void DisableAttack()

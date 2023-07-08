@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDamageable
 {
 
     public float movementSpeed = 5f;
@@ -43,14 +43,20 @@ public class PlayerMovement : MonoBehaviour
 	private float atkCoolCounter = 0;
 	public int atkDamage;
 
-	public pointAtk pointatk; 
+	public pointAtk pointatk;
+
+
+	public int Maxhealth = 30;
+	public int health;
 
 	private void Awake() {
 		input = new PlayerControls();
+
 	}
 
 	private void Start() {
 		activeMoveSpeed = movementSpeed;
+		health = Maxhealth;
 		
 	}
 
@@ -232,4 +238,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void dealDamage(int damage)
+    {
+        health = health - damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
