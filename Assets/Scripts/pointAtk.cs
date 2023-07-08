@@ -18,6 +18,8 @@ public class pointAtk : MonoBehaviour
 	private float tan;
 	private bool rotating = true;
 
+	public GameObject fireball;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -39,6 +41,10 @@ public class pointAtk : MonoBehaviour
 
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	
+	}
+
+	public void fireTheBall() {
+		Instantiate(fireball, objPos, transform.rotation);
 	}
 
 }

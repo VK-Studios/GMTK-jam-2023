@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 746e3e627b9acd24aa0b63ecaac7311f
+guid: 6c091653bacecab48ace58167038aff0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slash_0
+      name: slash-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ce3d36e96113374ba501cf8154fe8cd
-      internalID: 152057788
+      spriteID: 6a67a5a5d66ffc3489e6ab2f9ee1c17f
+      internalID: -1102343590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_1
+      name: slash-sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41064a1d36802ca40935f3c2d6108ff4
-      internalID: -2106562878
+      spriteID: 540035bb47aeacd4f8456494296fd12f
+      internalID: -633810572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_2
+      name: slash-sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a4695eee7f321743956261b6012a2eb
-      internalID: -1412819845
+      spriteID: b0842eab1cb693447a521cba02b3dca3
+      internalID: -1708811459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_3
+      name: slash-sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08a367d8b88b3ff498e7660f9901b8f4
-      internalID: -1838489001
+      spriteID: 203783da7e4e94b47a2ff6e3920c25ce
+      internalID: -1864075825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_4
+      name: slash-sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09867391888a20e43a7701078660122b
-      internalID: -869679753
+      spriteID: 0998dfc657eee944db65e1d2453f2636
+      internalID: 39673208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_5
+      name: slash-sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79da091a04002bf42a8f3ccd7eeb22f1
-      internalID: -2092673650
+      spriteID: d33b97dd5541ee748b46a00896fc352d
+      internalID: 2085815805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_6
+      name: slash-sheet_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5113745d1471ea449988f016de583853
-      internalID: -785093608
+      spriteID: f8c5c953945e4bb4c8edc5209a45251e
+      internalID: -273240929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slash_7
+      name: slash-sheet_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9cc0ee2c0bb86f48bbda8bfccc3c64c
-      internalID: -397847500
+      spriteID: 5c2b3a211fc71cb42bed7e6780ab21cb
+      internalID: -441410798
       vertices: []
       indices: 
       edges: []
@@ -301,14 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      slash_0: 152057788
-      slash_1: -2106562878
-      slash_2: -1412819845
-      slash_3: -1838489001
-      slash_4: -869679753
-      slash_5: -2092673650
-      slash_6: -785093608
-      slash_7: -397847500
+      slash-sheet_0: -1102343590
+      slash-sheet_1: -633810572
+      slash-sheet_2: -1708811459
+      slash-sheet_3: -1864075825
+      slash-sheet_4: 39673208
+      slash-sheet_5: 2085815805
+      slash-sheet_6: -273240929
+      slash-sheet_7: -441410798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

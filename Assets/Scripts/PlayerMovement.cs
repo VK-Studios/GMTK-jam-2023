@@ -16,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
 	private InputAction move;
 	private InputAction fire;
 	private InputAction dash;
+	private InputAction slot1;
 
 	public Animator legsAnim;
 	public Animator torsoAnim;
+	public Animator effectAnim;
 	private float dir = 1f;
 	private float mDir = 1f;
 
@@ -60,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
 		fire.Enable();
 		fire.performed += Fire;
 
+		slot1 = input.Player.Slot1;
+		slot1.Enable();
+		slot1.performed += Slot1;
+
 		dash = input.Player.Dash;
 		dash.Enable();
 		dash.performed += Dash;
@@ -70,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 		fire.Disable();
 		dash.Disable();
 
+		slot1.Disable();
 	}
 
 	// Update is called once per frame
@@ -169,7 +176,6 @@ public class PlayerMovement : MonoBehaviour
 			mDir = 3;
 		}*/
 
-		Debug.Log(mDir);
 		return mDir;
 
 	}
@@ -184,9 +190,20 @@ public class PlayerMovement : MonoBehaviour
 
 		if (atkCoolCounter <= 0) {
 			torsoAnim.SetTrigger("attack");
+			effectAnim.SetTrigger("attack");
 			atkCoolCounter = atkCooldown;
 		}
 		
+	}
+
+	private void Slot1(InputAction.CallbackContext context) {
+
+		if (atkCoolCounter <= 0) {
+			torsoAnim.SetTrigger("channel");
+			effectAnim.SetTrigger("fireball");
+			atkCoolCounter = atkCooldown;
+		}
+
 	}
 
 	private void Dash(InputAction.CallbackContext context) {
