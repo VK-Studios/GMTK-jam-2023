@@ -5,7 +5,11 @@ using UnityEngine;
 public class orb : MonoBehaviour
 {
     public respawnw respawn;
- 
+
+    private void Start()
+    {
+        respawn = GameObject.FindFirstObjectByType<respawnw>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
       

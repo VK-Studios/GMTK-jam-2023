@@ -321,7 +321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526450519
@@ -848,57 +848,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1456054771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1456054773}
-  - component: {fileID: 1456054772}
-  m_Layer: 0
-  m_Name: respawn
-  m_TagString: Respawn
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1456054772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456054771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a508c3aa0545284999066eb846764fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players:
-  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-  Player: {fileID: 0}
-  playerNum: 0
---- !u!4 &1456054773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456054771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.59, y: -0.84, z: -0.034938972}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464275099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1024,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1587895078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587895080}
+  - component: {fileID: 1587895079}
+  m_Layer: 0
+  m_Name: respawn
+  m_TagString: Respawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1587895079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587895078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a508c3aa0545284999066eb846764fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+  - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+  Player: {fileID: 0}
+  playerNum: 0
+  totalSoulOrbs: 1
+  soulOrb: {fileID: 4026578360533944559, guid: 01f47437d8520c849a7f597c24f38bd6, type: 3}
+--- !u!4 &1587895080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587895078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.59, y: -0.84, z: -0.034938972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824840373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1227,11 @@ PrefabInstance:
     - target: {fileID: 3377493328914552818, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: respawn
       value: 
-      objectReference: {fileID: 1456054772}
+      objectReference: {fileID: 1587895079}
+    - target: {fileID: 3377493328914552818, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+      propertyPath: soulOrb
+      value: 
+      objectReference: {fileID: 4026578360533944559, guid: 01f47437d8520c849a7f597c24f38bd6, type: 3}
     - target: {fileID: 5231063674201628200, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: m_RootOrder
       value: 1
