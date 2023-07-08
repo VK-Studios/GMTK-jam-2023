@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 			legsAnim.SetFloat("lastInput", dir);
 
-			if (moveDirection.x != 0) {
+			if (moveDirection.x != 0 && m_Grounded == true) {
 				dash_audio.Stop();
                 if (walk_audio.isPlaying == false)
                 {
