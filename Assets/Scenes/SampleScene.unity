@@ -1454,7 +1454,7 @@ MonoBehaviour:
   - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
   - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
   - {fileID: 7795792512717020510, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 1246826439}
   playerNum: 0
   totalSoulOrbs: 1
   soulOrb: {fileID: 4026578360533944559, guid: 01f47437d8520c849a7f597c24f38bd6, type: 3}
