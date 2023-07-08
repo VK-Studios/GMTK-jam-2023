@@ -292,7 +292,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		if (m_Grounded) {
 			jump = true;
 		}
-		dealDamage(10);
 
 	}
 

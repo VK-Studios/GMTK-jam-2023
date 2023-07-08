@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2147223214882624266}
   - component: {fileID: 9022439823799007682}
-  - component: {fileID: 2389169626973569817}
+  - component: {fileID: -8985002995899773867}
   - component: {fileID: 8665327367516152470}
   - component: {fileID: 3075889504131298487}
   m_Layer: 0
-  m_Name: fireball
+  m_Name: fireballEnemy
   m_TagString: cast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2389169626973569817
+--- !u!114 &-8985002995899773867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4889875317409594797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e30d39f5a05fd4aa3988473bdcd5d1, type: 3}
+  m_Script: {fileID: 11500000, guid: a5fa8f76c186edc479b0fb44a376db1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &8665327367516152470

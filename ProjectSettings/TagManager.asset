@@ -6,6 +6,8 @@ TagManager:
   tags:
   - orb
   - fText
+  - Enemy
+  - cast
   layers:
   - Default
   - TransparentFX
@@ -42,16 +44,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 391116025
-    locked: 0
-  - name: Player
-    uniqueID: 2155458969
-    locked: 0
-  - name: Foreground
-    uniqueID: 874048825
-    locked: 0
-  - name: Effect
-    uniqueID: 1486277625
     locked: 0
