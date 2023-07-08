@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
 			legsAnim.SetFloat("lastInput", dir);
 
-			if (moveDirection.x != 0 || moveDirection.y != 0) {
+			if (moveDirection.x != 0) {
 				legsAnim.SetBool("isMoving", true);
 			} else {
 				legsAnim.SetBool("isMoving", false);
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 		mousePos.y = mousePos.y - objPos.y;
 
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-		Debug.Log(angle);
+		//Debug.Log(angle);
 
 
 		if (angle >= 90 || angle < -90) {
