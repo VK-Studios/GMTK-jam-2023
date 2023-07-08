@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 1040346085}
   m_Layer: 5
   m_Name: healthbar
-  m_TagString: Untagged
+  m_TagString: healthbar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1311,6 +1311,10 @@ PrefabInstance:
       propertyPath: Maxhealth
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3377493328914552818, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 1040346082}
     - target: {fileID: 5231063674201628200, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: m_RootOrder
       value: 1

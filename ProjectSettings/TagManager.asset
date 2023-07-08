@@ -8,6 +8,7 @@ TagManager:
   - fText
   - Enemy
   - cast
+  - healthbar
   layers:
   - Default
   - TransparentFX

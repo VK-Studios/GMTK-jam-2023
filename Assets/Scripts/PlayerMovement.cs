@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     public Rigidbody2D rb;
 	Vector2 moveDirection = Vector2.zero;
 
+	public GameObject healthbar;
+
 
 	[SerializeField] private LayerMask m_WhatIsGround;
 	[SerializeField] private Transform m_GroundCheck;
@@ -79,6 +81,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 		input = new PlayerControls();
         respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<respawnw>();
+
+		healthbar = GameObject.FindGameObjectWithTag("healthbar");
 		spendableSoul = respawn.totalSoulOrbs;
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -90,6 +94,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Start() {
 		activeMoveSpeed = movementSpeed;
 		health = Maxhealth;
+		healthbar.GetComponent<healthbar>().setMaxHealth(Maxhealth);
 		
 	}
 
@@ -310,7 +315,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     public void dealDamage(int damage)
     {
         health = health - damage;
-        if (health <= 0)
+		healthbar.GetComponent<healthbar>().SetHealth(health);
+		if (health <= 0)
         {
 			respawn.death();
         }
