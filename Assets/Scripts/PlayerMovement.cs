@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
 			legsAnim.SetFloat("lastInput", dir);
 
-			if (moveDirection.x != 0 || moveDirection.y != 0) {
+			if (moveDirection.x != 0) {
 				legsAnim.SetBool("isMoving", true);
 			} else {
 				legsAnim.SetBool("isMoving", false);

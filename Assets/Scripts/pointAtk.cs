@@ -14,6 +14,7 @@ public class pointAtk : MonoBehaviour
 	public Transform atkLoc;
 	private Vector3 objPos;
 	private float angle;
+	private Vector3 effectPos;
 
 	private float tan;
 	private bool rotating = true;
@@ -37,14 +38,16 @@ public class pointAtk : MonoBehaviour
 		mousePos.x = mousePos.x - objPos.x;
 		mousePos.y = mousePos.y - objPos.y;
 
-		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+		angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
 		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+		effectPos = transform.position;
 	
 	}
 
 	public void fireTheBall() {
-		Instantiate(fireball);
+		Instantiate(fireball, effectPos, transform.rotation);
 	}
 
 }
