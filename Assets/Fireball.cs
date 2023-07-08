@@ -23,6 +23,6 @@ public class Fireball : MonoBehaviour
 	private void FixedUpdate() {
 
 
-		rb.velocity = new Vector2(transform.up.x, transform.up.y);
+		rb.velocity = new Vector2(transform.up.y, -transform.up.x);
 	}
 }
