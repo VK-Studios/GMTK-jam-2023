@@ -1,22 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
 public class PlayerMovement : MonoBehaviour, IDamageable
+public class PlayerMovement : MonoBehaviour
 {
 
     public float movementSpeed = 5f;
     public Rigidbody2D rb;
 	Vector2 moveDirection = Vector2.zero;
 
+
+	[SerializeField] private LayerMask m_WhatIsGround;
+	[SerializeField] private Transform m_GroundCheck;
+	[SerializeField] private float m_JumpForce = 400f;
+	const float k_GroundedRadius = 1f;
+	private bool m_Grounded;
+	
+
+	private Rigidbody2D m_Rigidbody2D;
+	[Header("Events")]
+	[Space]
+	public UnityEvent OnLandEvent;
+
+	private bool jump;
+
 	private PlayerControls input;
 	private InputAction move;
 	private InputAction fire;
 	private InputAction dash;
 	private InputAction slot1;
+
+	private InputAction jumpp;
 
 	public Animator legsAnim;
 	public Animator torsoAnim;
@@ -52,6 +71,11 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Awake() {
 		input = new PlayerControls();
 
+		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+		if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
+
 	}
 
 	private void Start() {
@@ -77,13 +101,17 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		dash = input.Player.Dash;
 		dash.Enable();
 		dash.performed += Dash;
+
+		jumpp = input.Player.Jump;
+		jumpp.Enable();
+		jumpp.performed += Jump;
 	}
 
 	private void OnDisable() {
 		move.Disable();
 		fire.Disable();
 		dash.Disable();
-
+		jumpp.Disable();
 		slot1.Disable();
 	}
 
@@ -156,6 +184,12 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 		torsoAnim.SetFloat("Dir", updateAnims());
 
+		if (jump) {
+			// Add a vertical force to the player.
+			m_Grounded = false;
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			jump = false;
+		}
 	}
 
 	private float updateAnims() {
@@ -194,7 +228,21 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	private void FixedUpdate() {
 		//movement
-		rb.velocity = new Vector2(moveDirection.x * activeMoveSpeed, 0);
+		rb.velocity = new Vector2(moveDirection.x * activeMoveSpeed, rb.velocity.y);
+
+		bool wasGrounded = m_Grounded;
+		m_Grounded = false;
+
+		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		for (int i = 0; i < colliders.Length; i++) {
+			if (colliders[i].gameObject != gameObject) {
+				m_Grounded = true;
+				if (!wasGrounded)
+					OnLandEvent.Invoke();
+			}
+		}
 	}
 
 
@@ -224,6 +272,14 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		if(dashCoolCounter <= 0 && dashCounter <= 0) {
 			activeMoveSpeed = dashSpeed;
 			dashCounter = dashLength;
+		}
+
+	}
+
+	private void Jump(InputAction.CallbackContext context) {
+
+		if (m_Grounded) {
+			jump = true;
 		}
 
 	}
