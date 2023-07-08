@@ -18,6 +18,8 @@ public class pointAtk : MonoBehaviour
 	private float tan;
 	private bool rotating = true;
 
+	public GameObject fireball;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -29,15 +31,20 @@ public class pointAtk : MonoBehaviour
     {
         mousePos = Mouse.current.position.value;
 
-		mousePos.z = 5.23f;
+		mousePos.z = 10f;
 
 		objPos = Camera.main.WorldToScreenPoint(transform.position);
 		mousePos.x = mousePos.x - objPos.x;
 		mousePos.y = mousePos.y - objPos.y;
 
 		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+
+		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	
+	}
+
+	public void fireTheBall() {
+		Instantiate(fireball, objPos, transform.rotation);
 	}
 
 }
