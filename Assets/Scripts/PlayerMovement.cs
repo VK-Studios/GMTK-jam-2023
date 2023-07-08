@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -62,15 +63,19 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	public int atkDamage;
 
 	public pointAtk pointatk;
+	public respawnw respawn;
 
 
 	public int Maxhealth = 30;
 	public int health;
 
+	public int totalSoulOrbs;
+	public int spendingOrbs = 0;
+
 	private void Awake() {
 		input = new PlayerControls();
-
-		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<respawnw>();
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -80,6 +85,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Start() {
 		activeMoveSpeed = movementSpeed;
 		health = Maxhealth;
+		totalSoulOrbs = 0;
 		
 	}
 
@@ -253,6 +259,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			effectAnim.SetTrigger("attack");
 			atkCoolCounter = atkCooldown;
 		}
+		totalSoulOrbs++;	
 		
 	}
 
@@ -280,6 +287,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		if (m_Grounded) {
 			jump = true;
 		}
+		dealDamage(10);
 
 	}
 
@@ -298,7 +306,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         health = health - damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+    			respawn.death();
         }
     }
 }
