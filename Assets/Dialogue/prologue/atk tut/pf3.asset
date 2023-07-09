@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: pf3
   m_EditorClassIdentifier: 
   Character: 0
-  text: 
+  text: '*use left mouse button to swing your sword*'
   used: 0
   clip:
     name: 
