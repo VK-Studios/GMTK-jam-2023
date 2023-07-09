@@ -9,6 +9,7 @@ public class Fireball : MonoBehaviour
 
     private Rigidbody2D rb;
     private int life = 60;
+    public int fireDamage;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,7 +22,12 @@ public class Fireball : MonoBehaviour
 
     }
 
-	private void FixedUpdate() {
+    public void setDamage(int damage)
+    {
+        fireDamage = damage;
+    }
+
+    private void FixedUpdate() {
         life -= 1;
 
         if (life <= 0)
@@ -38,7 +44,7 @@ public class Fireball : MonoBehaviour
             //add interface for damamge here, IDamageable
            if(collision.gameObject.GetComponent<IDamageable>() != null)
             {
-                collision.gameObject.GetComponent<IDamageable>().dealDamage(5);
+                collision.gameObject.GetComponent<IDamageable>().dealDamage(fireDamage);
             } 
 
 

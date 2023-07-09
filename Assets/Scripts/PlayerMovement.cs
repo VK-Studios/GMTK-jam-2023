@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	[SerializeField] private LayerMask m_WhatIsGround;
 	[SerializeField] private Transform m_GroundCheck;
-	[SerializeField] private float m_JumpForce = 400f;
+	[SerializeField] public float m_JumpForce = 400f;
 	const float k_GroundedRadius = 1f;
 	private bool m_Grounded;
 	
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	//dash
 	Vector2 dashDirection = Vector2.zero;
 
-	private float activeMoveSpeed;
+	public float activeMoveSpeed;
 	public float dashSpeed;
 
 	public float dashLength = .5f;
@@ -271,9 +271,16 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			}
 		}
 	}
+	public void addHealth(int  healthAdd)
+	{
+		Maxhealth += healthAdd;
+		health += healthAdd;
+        healthbar.GetComponent<healthbar>().setMaxHealth(Maxhealth);
+        healthbar.GetComponent<healthbar>().SetHealth(health);
 
+    }
 
-	private void Fire(InputAction.CallbackContext context) {
+    private void Fire(InputAction.CallbackContext context) {
 		pointatk.EnableAttack();
 		pointatk.frozen = true;
 		if (atkCoolCounter <= 0) {
@@ -284,6 +291,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		}
 		
 	}
+
 
 	private void Slot1(InputAction.CallbackContext context) {
 
@@ -324,8 +332,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         }
     }
 
-    
-
+	
     public void dealDamage(int damage)
     {
         health = health - damage;
