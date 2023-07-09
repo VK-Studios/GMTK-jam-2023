@@ -18,7 +18,6 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        souls.SetText("current orbs: " + Player.spendableSoul);
 
 
     }
@@ -27,6 +26,8 @@ public class Shop : MonoBehaviour
     {
         point = GameObject.FindFirstObjectByType<pointAtk>();
         Player = GameObject.FindFirstObjectByType<PlayerMovement>();
+        souls.SetText("current orbs: " + Player.spendableSoul);
+
     }
 
     public void healthUp()

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
@@ -40,11 +42,18 @@ public class enemy1Atk : MonoBehaviour
     {
        
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        angle = Mathf.Atan2(target.position.x, (float)(-target.position.y-0.35)) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(target.position.x, (float)(transform.position.y)) * Mathf.Rad2Deg;
 
-       transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+       transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90 ));
     
         effectPos = transform.position;
+
+
+        if (Math.Abs(target.position.x - effectPos.x) < 5)
+        {
+            angle = Mathf.Atan2(target.position.x, (float)(transform.position.y)) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
+        }
 
     }
 

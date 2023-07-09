@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class respawnw : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> players = new List<GameObject>();
+    public GameObject[] spawners;
+    public GameObject[] enemies;
     public GameObject Player;
     public int playerNum;
     public int totalSoulOrbs;
@@ -39,8 +42,18 @@ public class respawnw : MonoBehaviour
 
     public void death()
     {
+        spawners = GameObject.FindGameObjectsWithTag("spawner");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for(int i = 0;i<spawners.Length;i++)
+        {
+            spawners[i].GetComponent<spawnEnemy>().spawned = 0; 
+        }
+        for(int i = 0;i<enemies.Length;i++)
+        {
+            Destroy(enemies[i]);
+        }
         Destroy(GameObject.FindGameObjectWithTag("orb"));
-        Vector3 pos = Player.transform.position;
+        Vector3 pos = Player.transform.position; 
         Quaternion rot = Player.transform.rotation;
         GameObject newPlayer = Instantiate(players[playerNum]);
         newPlayer.tag = Player.tag;

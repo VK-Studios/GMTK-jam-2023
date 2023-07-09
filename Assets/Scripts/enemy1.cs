@@ -151,7 +151,6 @@ public class enemy1 : MonoBehaviour, IDamageable
 
 
             legsAnim.SetInteger("xInput", Mathf.RoundToInt(moveDir.x));
-            Debug.Log(Mathf.RoundToInt(moveDir.x));
 
             /*if (moveDirection.x == 0 && moveDirection.y >= 0.01) {
 				//up
@@ -213,7 +212,6 @@ public class enemy1 : MonoBehaviour, IDamageable
     {
 
         rb.velocity = new Vector2(moveDir.x * moveSpeed, rb.velocity.y);
-        Debug.Log(moveDir.x);
         if (atTarget)
         {
             cooldown++;

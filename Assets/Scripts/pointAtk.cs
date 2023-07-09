@@ -37,7 +37,6 @@ public class pointAtk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(swordDamage);
         mousePos = Mouse.current.position.value;
 
 		mousePos.z = 10f;
