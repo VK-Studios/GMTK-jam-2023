@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   heatlh: 0
+  moveSpeed: 2
   cooldown: 0
   fireball: {fileID: 4889875317409594797, guid: 4a4a6c270b398624a8a5f265440eb8da, type: 3}
   legsAnim: {fileID: 7490865014146863174}

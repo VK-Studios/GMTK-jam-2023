@@ -74,8 +74,10 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	public int spendableSoul;
 
-	public AudioSource fire_audio;
-	public AudioSource sword_audio;
+	public AudioSource sfx;
+
+	public AudioClip sword_audio;
+	public AudioClip fire_audio;
 
 
 	private void Awake() {
@@ -276,7 +278,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		pointatk.EnableAttack();
 		pointatk.frozen = true;
 		if (atkCoolCounter <= 0) {
-			sword_audio.Play();
+			sfx.clip = sword_audio;
+			sfx.Play();
 			torsoAnim.SetTrigger("attack");
 			effectAnim.SetTrigger("attack");
 			atkCoolCounter = atkCooldown;
@@ -288,8 +291,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Slot1(InputAction.CallbackContext context) {
 
 		if (atkCoolCounter <= 0) {
-            fire_audio.Play();
-            torsoAnim.SetTrigger("channel");
+			sfx.clip = fire_audio;
+			sfx.Play();
+			torsoAnim.SetTrigger("channel");
 			effectAnim.SetTrigger("fireball");
 			atkCoolCounter = atkCooldown;
 		}
