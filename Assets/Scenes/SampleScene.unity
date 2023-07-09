@@ -5131,10 +5131,6 @@ PrefabInstance:
       propertyPath: respawn
       value: 
       objectReference: {fileID: 1587895079}
-    - target: {fileID: 4760352437265242068, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 37e72f1e5ee56f841bcdf0a2688e838e, type: 3}
     - target: {fileID: 5231063674201628200, guid: 8b7f4b5f496e9d24a985e0f65fc46ddd, type: 3}
       propertyPath: m_RootOrder
       value: 1

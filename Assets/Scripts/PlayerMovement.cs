@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private InputAction fire;
 	private InputAction dash;
 	private InputAction slot1;
+	private InputAction slot2;
 
 	private InputAction jumpp;
 
@@ -57,6 +58,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	private float dashCounter;
 	private float dashCoolCounter;
+
+	public float healCooldown;
+	private float healCoolCounter;
 
 	private Vector3 mousePos;
 	private Vector3 objPos;
@@ -117,6 +121,10 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		slot1.Enable();
 		slot1.performed += Slot1;
 
+		slot2 = input.Player.Slot2;
+		slot2.Enable();
+		slot2.performed += Slot2;
+
 		dash = input.Player.Dash;
 		dash.Enable();
 		dash.performed += Dash;
@@ -132,6 +140,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		dash.Disable();
 		jumpp.Disable();
 		slot1.Disable();
+		slot2.Disable();
 	}
 
 	// Update is called once per frame
@@ -194,10 +203,15 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 		if (atkCoolCounter > 0) {
 			atkCoolCounter -= Time.deltaTime;
 		}
+
 		if(atkCoolCounter <= 0)
 		{
 			pointatk.frozen = false;
 			pointatk.DisableAttack();
+		}
+
+		if (healCoolCounter > 0) {
+			healCoolCounter -= Time.deltaTime;
 		}
 
 		float mdir = updateAnims();
@@ -296,6 +310,28 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			torsoAnim.SetTrigger("channel");
 			effectAnim.SetTrigger("fireball");
 			atkCoolCounter = atkCooldown;
+		}
+
+	}
+
+	private void Slot2(InputAction.CallbackContext context) {
+
+		if (atkCoolCounter <= 0 && healCoolCounter <= 0) {
+			//sfx.clip = heal_audio;
+			//sfx.Play();
+			torsoAnim.SetTrigger("channel");
+			effectAnim.SetTrigger("heal");
+			atkCoolCounter = atkCooldown;
+			healCoolCounter = healCooldown;
+
+			if (health+10 < Maxhealth) {
+				health += 10;
+			} else {
+				health = Maxhealth;
+			}
+
+			healthbar.GetComponent<healthbar>().SetHealth(health);
+
 		}
 
 	}

@@ -629,6 +629,7 @@ MonoBehaviour:
   dashSpeed: 15
   dashLength: 0.3
   dashCooldown: 1
+  healCooldown: 20
   atkCooldown: 0.5
   atkDamage: 0
   pointatk: {fileID: 5687049273707060618}
@@ -711,7 +712,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f352c516f6bec2f46a047970af4045ef, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 54baea6e4a35d4d4fb5c684ee896d4db, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 37e72f1e5ee56f841bcdf0a2688e838e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
