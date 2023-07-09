@@ -76,8 +76,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	public AudioSource fire_audio;
 	public AudioSource sword_audio;
-	public AudioSource walk_audio;
-	public AudioSource dash_audio;
 
 
 	private void Awake() {
@@ -181,14 +179,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 			legsAnim.SetFloat("lastInput", dir);
 
 			if (moveDirection.x != 0 && m_Grounded == true) {
-				dash_audio.Stop();
-                if (walk_audio.isPlaying == false)
-                {
-                    walk_audio.Play();
-                }
                 legsAnim.SetBool("isMoving", true);
 			} else {
-				walk_audio.Stop();
 				legsAnim.SetBool("isMoving", false);
 			}
 		}
@@ -307,7 +299,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	private void Dash(InputAction.CallbackContext context) {
 		
 		if(dashCoolCounter <= 0 && dashCounter <= 0) {
-			dash_audio.Play();
 			activeMoveSpeed = dashSpeed;
 			dashCounter = dashLength;
 		}

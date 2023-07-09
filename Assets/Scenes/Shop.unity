@@ -739,7 +739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!114 &309581759
@@ -1720,7 +1719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!114 &839170367
@@ -1830,7 +1828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!1 &887493237
@@ -2587,7 +2584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1136642899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2813,7 +2810,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!114 &1167429921
@@ -3277,7 +3273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!222 &1252843489
@@ -3724,7 +3719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  Fireball: {fileID: 0}
   point: {fileID: 0}
   souls: {fileID: 0}
 --- !u!114 &1496458631
@@ -5561,7 +5555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7211272945743584518
 MonoBehaviour:
   m_ObjectHideFlags: 0

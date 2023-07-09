@@ -4,11 +4,8 @@ using UnityEngine;
 
 public enum ECharacter
 {
+    PC,
     Narrator,
-    Jerry,
-    Steve,
-    Manager,
-    Metal_Bar,
-    Goat,
-    Crane_Operator
+    Harold,
+
 }
