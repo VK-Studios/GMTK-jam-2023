@@ -19,7 +19,7 @@ public class fightScene : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-        if(db.complete && ro) {
+        if(db.complete && !ro) {
 
             Vector3 heck = new Vector3(transform.position.x+20, transform.position.y+10, transform.position.z);
 

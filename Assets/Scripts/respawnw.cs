@@ -18,6 +18,7 @@ public class respawnw : MonoBehaviour
     public Shop shop;
     public GameObject MainMenuShop;
     public DialogueBox box;
+    public bool isShop;
 
     public LevelLoaderScript ll;
 
@@ -66,8 +67,12 @@ public class respawnw : MonoBehaviour
         Instantiate(soulOrb, pos, rot);
         Destroy(Player);
         Player = newPlayer;
-        shop.newPlayer();
-        MainMenuShop.SetActive(true);
+        if (isShop) {
+			shop.newPlayer();
+			MainMenuShop.SetActive(true);
+		}
+        
+        
         virtualCamera.Follow = Player.transform;
 
 		playerNum++;
