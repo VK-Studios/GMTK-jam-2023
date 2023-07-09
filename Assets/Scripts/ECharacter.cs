@@ -7,5 +7,5 @@ public enum ECharacter
     PC,
     Narrator,
     Harold,
-
+    Disembodied_Voice,
 }
