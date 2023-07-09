@@ -113,7 +113,7 @@ public class enemy1 : MonoBehaviour, IDamageable
         if(abilCooldown >500)
         {
             System.Random random = new System.Random();
-            ability = random.Next(0, 2);
+            ability = random.Next(0, 5);
             abilCooldown = 0;
         }
         abilCooldown++;
@@ -130,7 +130,7 @@ public class enemy1 : MonoBehaviour, IDamageable
 
         if (target)
         {
-            if (ability == 0)
+            if (ability < 4)
             {
 
                 if (target1.x - transform.position.x > 0)
@@ -221,7 +221,7 @@ public class enemy1 : MonoBehaviour, IDamageable
                 cooldown = 0;
             }
         }
-        if(ability == 1)
+        if(ability >= 4)
         {
             cooldown++;
             if (cooldown > 27)
@@ -230,7 +230,7 @@ public class enemy1 : MonoBehaviour, IDamageable
                 cooldown = 0;
             }
         }
-        else if (ability == 0)
+        else if (ability < 4)
         {
             cooldown++;
             if (cooldown > 60)
