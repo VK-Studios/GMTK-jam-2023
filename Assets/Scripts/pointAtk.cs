@@ -25,13 +25,13 @@ public class pointAtk : MonoBehaviour
 	public bool frozen = false;
 
     public int swordDamage =5;
-    public int damageOfFire = 5;
+    public int damageOfFire = 3;
 
 	// Start is called before the first frame update
 	void Start()
     {
         swordDamage = 5;
-        damageOfFire = 5;
+        damageOfFire = 3;
     }
 
     // Update is called once per frame

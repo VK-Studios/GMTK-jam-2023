@@ -19,6 +19,7 @@ public class Shop : MonoBehaviour
     void Update()
     {
 
+        souls.SetText("current orbs: " + Player.spendableSoul);
 
     }
 
@@ -26,13 +27,12 @@ public class Shop : MonoBehaviour
     {
         point = GameObject.FindFirstObjectByType<pointAtk>();
         Player = GameObject.FindFirstObjectByType<PlayerMovement>();
-        souls.SetText("current orbs: " + Player.spendableSoul);
 
     }
 
     public void healthUp()
     {
-        if (Player.spendableSoul > 2)
+        if (Player.spendableSoul >= 2)
         {
             Player.spendableSoul -= 2;
             Player.addHealth(5);
@@ -41,16 +41,16 @@ public class Shop : MonoBehaviour
     }
     public void speedUp()
     {
-        if (Player.spendableSoul > 2)
+        if (Player.spendableSoul >= 2)
         {
             Player.spendableSoul -= 2;
-            Player.activeMoveSpeed += 0.3f;
+            Player.activeMoveSpeed += 0.5f;
 
         }
     }
     public void jumpUp()
     {
-        if (Player.spendableSoul > 2)
+        if (Player.spendableSoul >= 2)
         {
             Player.spendableSoul -= 2;
             Player.m_JumpForce += 40;
@@ -59,15 +59,15 @@ public class Shop : MonoBehaviour
     }
       public void fireballUp()
     {
-        if (Player.spendableSoul > 2)
+        if (Player.spendableSoul >= 2)
         {
             Player.spendableSoul -= 2;
-            point.damageOfFire += 3;
+            point.damageOfFire += 2;
         }
     }  
     public void swordUp()
     {
-        if (Player.spendableSoul > 2)
+        if (Player.spendableSoul >= 2)
         {
             Player.spendableSoul -= 2;
             point.swordDamage += 2; 

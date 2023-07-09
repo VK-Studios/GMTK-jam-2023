@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour, IDamageable
 {
 
-    public float movementSpeed = 5f;
+    public float movementSpeed = 7f;
     public Rigidbody2D rb;
 	Vector2 moveDirection = Vector2.zero;
 
