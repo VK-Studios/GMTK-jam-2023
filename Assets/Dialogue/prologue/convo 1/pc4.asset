@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dce570f546963de4c91722d79c80ab2c, type: 3}
-  m_Name: New Dialogue Box
+  m_Name: pc4
   m_EditorClassIdentifier: 
-  Character: 2
-  text: Where You going there, bud?
+  Character: 0
+  text: Yeah yeah, that helmet has a dark past yada yada yada. I get the idea.
   used: 0
   clip:
     name: 
