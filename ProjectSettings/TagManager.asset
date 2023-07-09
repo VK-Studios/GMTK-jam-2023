@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - cast
   - healthbar
+  - spawner
   layers:
   - Default
   - TransparentFX
