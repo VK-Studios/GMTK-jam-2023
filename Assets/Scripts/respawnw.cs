@@ -17,6 +17,9 @@ public class respawnw : MonoBehaviour
     public GameObject soulOrb;
     public Shop shop;
     public GameObject MainMenuShop;
+    public DialogueBox box;
+
+    public LevelLoaderScript ll;
 
     public Cinemachine.CinemachineVirtualCamera virtualCamera;
 
@@ -40,6 +43,12 @@ public class respawnw : MonoBehaviour
 
         }
 
+        
+        if (box.complete) {
+            ll.LoadNextLevel("Main");
+
+		}
+        
     }
     
     public void addOrb()

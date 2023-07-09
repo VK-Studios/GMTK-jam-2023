@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: pf1
   m_EditorClassIdentifier: 
   Character: 0
-  text: 
+  text: Hey look some enemies ahead
   used: 0
   clip:
     name: 
