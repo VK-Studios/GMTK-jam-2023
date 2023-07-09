@@ -30,9 +30,16 @@ public class respawnw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        
+        if(MainMenuShop.activeSelf == true)
+        {
+            Player.GetComponent<PlayerMovement>().setFrozen(true);
+        }
+        else
+        {
+            Player.GetComponent<PlayerMovement>().setFrozen(false);
+
+        }
+
     }
     
     public void addOrb()

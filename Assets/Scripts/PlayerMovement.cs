@@ -145,6 +145,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 	// Update is called once per frame
 	void Update() {
+
+		
 		
 		if (dashCounter == dashLength) {
 			dashDirection = move.ReadValue<Vector2>();
@@ -303,7 +305,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 
 	private void Slot1(InputAction.CallbackContext context) {
-
 		if (atkCoolCounter <= 0) {
 			sfx.clip = fire_audio;
 			sfx.Play();
@@ -356,11 +357,19 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 	public void setFrozen(bool froz) {
 		if (froz) {
 			move.Disable();
+			fire.Disable();	
+			slot1.Disable();
+			slot2.Disable();
+			
 		}
         else
         {
 			move.Enable();
+			fire.Enable();
+			slot1.Enable();
+			slot2.Enable();
         }
+	
     }
 
 	
