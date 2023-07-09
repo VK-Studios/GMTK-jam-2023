@@ -65,6 +65,7 @@ public class DialogueBox : MonoBehaviour, IDialogueBox
 
 
 		TextBox.SetActive(true);
+        Player = GameObject.FindGameObjectWithTag("Player");
         Player.GetComponent<PlayerMovement>().setFrozen(true);
 
         applyText();
@@ -84,6 +85,7 @@ public class DialogueBox : MonoBehaviour, IDialogueBox
 			complete = true;
 			dialogueActive = false;
 			TextBox.SetActive(false);
+			Player = GameObject.FindGameObjectWithTag("Player");
 			Player.GetComponent<PlayerMovement>().setFrozen(false);
 		}
 	}

@@ -97,6 +97,8 @@ public class interactionBox : MonoBehaviour {
                 interactedObject = other.gameObject;
                 */
 			}
+		} else if (interable.GetComponent<IDialogueBox>() != null) {
+			interable.GetComponent<IDialogueBox>().OnCollision();
 		}
 	}
 

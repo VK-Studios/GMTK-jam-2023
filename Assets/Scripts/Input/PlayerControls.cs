@@ -89,6 +89,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec48592f-df61-43dc-8088-12326fe25bed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -355,6 +364,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75447b59-8c5e-467f-abe7-7aa25cbba2b3"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -448,6 +468,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""a85468d6-a9bd-41a4-9dae-f6b3f66ba695"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""6cad42f6-33d0-4304-a954-04ee64b30320"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -871,6 +900,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b93248ca-feba-40ca-a14e-e20b045849da"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2f1fe2e-c54d-4ea2-9c36-5125c2263402"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -947,6 +998,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Slot1 = m_Player.FindAction("Slot1", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Slot2 = m_Player.FindAction("Slot2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -959,6 +1011,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_Next = m_UI.FindAction("Next", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1027,6 +1080,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Slot1;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Slot2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1038,6 +1092,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Slot1 => m_Wrapper.m_Player_Slot1;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Slot2 => m_Wrapper.m_Player_Slot2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1068,6 +1123,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Slot2.started += instance.OnSlot2;
+            @Slot2.performed += instance.OnSlot2;
+            @Slot2.canceled += instance.OnSlot2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1093,6 +1151,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Slot2.started -= instance.OnSlot2;
+            @Slot2.performed -= instance.OnSlot2;
+            @Slot2.canceled -= instance.OnSlot2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1124,6 +1185,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_Next;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -1138,6 +1200,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @Next => m_Wrapper.m_UI_Next;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1177,6 +1240,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @Next.started += instance.OnNext;
+            @Next.performed += instance.OnNext;
+            @Next.canceled += instance.OnNext;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1211,6 +1277,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @Next.started -= instance.OnNext;
+            @Next.performed -= instance.OnNext;
+            @Next.canceled -= instance.OnNext;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1282,6 +1351,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSlot1(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnSlot2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1295,5 +1365,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnNext(InputAction.CallbackContext context);
     }
 }

@@ -40,7 +40,7 @@ public class Fireball : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "cast") {
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "cast" && !collision.isTrigger) {
             //add interface for damamge here, IDamageable
            if(collision.gameObject.GetComponent<IDamageable>() != null)
             {
