@@ -41,6 +41,6 @@ public class spawnEnemy : MonoBehaviour
     }
 
     public void spawn() {
-		Instantiate(enemy, transform.position, transform.rotation);
+		//Instantiate(enemy, transform.position, transform.rotation);
 	}
 }
